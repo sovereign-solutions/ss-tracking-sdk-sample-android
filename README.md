@@ -4,7 +4,7 @@
 To run the example project, clone the repo, open and run in Android Studio.
 
 ## Installation AAR
-Copy arr in libs folder to your project libs folder.
+Copy aar in libs folder to your project libs folder.
 
 In file /app/build.gradle under dependencies add:
 
@@ -18,6 +18,15 @@ Open AndroidManifest.xml and add this under Application tag:
     <service android:name="com.sovereign.trackingsdk.TrackingService"
         android:foregroundServiceType="location"/>
         
+and some permissions:
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
 Sync project
 Build and Run your app.
 
