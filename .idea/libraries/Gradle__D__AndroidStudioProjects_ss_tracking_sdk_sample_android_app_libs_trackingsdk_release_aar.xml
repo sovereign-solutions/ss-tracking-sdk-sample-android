@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: D./AndroidStudioProjects/ss-tracking-sdk-sample-android/app/libs/trackingsdk-release.aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/68b270583d3d71a76557480421934e2c/transformed/jetified-trackingsdk-release/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/68b270583d3d71a76557480421934e2c/transformed/jetified-trackingsdk-release/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/68b270583d3d71a76557480421934e2c/transformed/jetified-trackingsdk-release/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
