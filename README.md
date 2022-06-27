@@ -6,7 +6,7 @@ To run the example project, clone the repo, open and run in Android Studio.
 ## Installation AAR
 Copy arr in libs folder to your project libs folder.
 
-In file /app/build.gradle under dependencies add line:
+In file /app/build.gradle under dependencies add:
 
     implementation files('libs/trackingsdk-release.aar')
     implementation 'com.google.android.gms:play-services-location:18.0.0'
@@ -20,3 +20,15 @@ Open AndroidManifest.xml and add this under Application tag:
         
 Sync project
 Build and Run your app.
+
+Usage:
+
+    //init Tracking Instance
+    Tracking.Builder builder = new Tracking.Builder(activity);
+    builder.setApiUrl("https://testing.skedulomatic.com/api/ffms/vdms-tracking/push")
+        .setAuthen("bearer EPiAx6m-...") //access token
+        .setTrackingDriver("username") //username
+    mTrackingSDK = builder.build();
+    //
+    mTrackingSDK.startTracking(); //call this to startTracking.
+    //mTrackingSDK.stopTracking(); //call this to stopTracking.
