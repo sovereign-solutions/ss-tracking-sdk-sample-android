@@ -37,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
         String refreshToken = "bearer Rnza47H-....";
 //        expires_in * 1000.0 + now()
         long expireIn = 0;
-        mTrackingSDK = builder.setApiUrl("https://testing.skedulomatic.com/api/ffms/vdms-tracking/push")
+        mTrackingSDK = builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
                 .setAuthen(token)
                 .setRefreshToken(refreshToken)
                 .setTokenExpired(expireIn)
-                .setTrackingDriver("thanh13")
+                .setAuthenURL("https://accounts.skedulomatic.com/oauth/token") // AUTH_URL + "/oauth/token"
+                .setTrackingDriver(username)
                 .setTrackingInterval(5000)
                 .setLocationUpdateFrequency(5000)
                 .setNotificationActionLaunchLabel("launch")
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 //                .setNotificationContentTitle("Tracking")
 //                .setNotificationIconRes(R.mipmap.ic_launcher)
         switchCompat.setChecked(mTrackingSDK.isTracking());
+        mTrackingSDK.setUseActivityRegconition(true);
         mTrackingSDK.setCallback(new LocationSendCallBack() {
             @Override
             public void onSendLocationResult(String resultString) {
