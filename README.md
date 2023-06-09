@@ -9,7 +9,7 @@ Copy aar in libs folder to your project libs folder.
 In file /app/build.gradle under dependencies add:
 
     implementation files('libs/trackingsdk-release.aar')
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     
@@ -34,7 +34,7 @@ Usage:
 
     //init Tracking Instance
     Tracking.Builder builder = new Tracking.Builder(activity);
-    builder.setApiUrl("https://testing.skedulomatic.com/api/ffms/vdms-tracking/push")
+    builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push")
         .setAuthen("bearer EPiAx6m-...") //access token
         .setTrackingDriver("username") //username
     mTrackingSDK = builder.build();
