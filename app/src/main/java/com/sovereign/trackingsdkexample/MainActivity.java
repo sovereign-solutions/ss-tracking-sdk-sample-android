@@ -1,10 +1,18 @@
 package com.sovereign.trackingsdkexample;
 
+import static android.content.Context.POWER_SERVICE;
+import static android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -16,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Tracking mTrackingSDK;
     private boolean isTracking = false;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +32,16 @@ public class MainActivity extends AppCompatActivity {
         final TextView textView = findViewById(R.id.text);
         final SwitchCompat switchCompat = findViewById(R.id.swithcer);
         Tracking.Builder builder = new Tracking.Builder(this);
+        String username = "thanh13";
+        String token = "bearer EPiAx6m-.....";
+        String refreshToken = "bearer Rnza47H-....";
+//        expires_in * 1000.0 + now()
+        long expireIn = 0;
         mTrackingSDK = builder.setApiUrl("https://testing.skedulomatic.com/api/ffms/vdms-tracking/push")
-                .setAuthen("bearer EPiAx6m-rnza47HSCQFDHXdTGWqydTCrJzbJk0olSk8w1A0lQtnBhp8isC2OmH3ToSLM4KnWb246PEIqXWqw3pAr_VyUbnkbY57A3gId9H3CvKo8pbjHO_tg0nOOtNTzZUhMaYUJeTfs8McRT93gTHaonoijgwbXAlFiPslNkG_vQBSVd_hngVdkbX_lbYt8aMfSPpDipU4R_Jdn0aoyRnSeaAaijNJpCMnL0K2h_4JoDw40muuffgI_m-4ssl8qYgw961SoQtBbtjvmm3GnrhhNkObs89c1w-cY_0kL8JgJZrX1JOaOVZMxV22VpqJySOUL7Yx5YcHLdwLkfK1QBtmIsEzYk7_Vb2T43ik-DYL3i7KLSTAsFpqBdTz_EdcWPFF696rj3t51SoJB57_x03iNADcJesHtQaDc2I_0aGPTwdoqKCIWPAYBZENCuqx45pBDG_F7W39CKI-QKJHuQqQCu1y7o97cUpA-H-9v9rxnQ_Y8")
-                .setTrackingDriver("thanh1308")
+                .setAuthen(token)
+                .setRefreshToken(refreshToken)
+                .setTokenExpired(expireIn)
+                .setTrackingDriver("thanh13")
                 .setTrackingInterval(5000)
                 .setLocationUpdateFrequency(5000)
                 .setNotificationActionLaunchLabel("launch")
