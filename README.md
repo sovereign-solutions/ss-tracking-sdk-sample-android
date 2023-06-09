@@ -17,6 +17,7 @@ Open AndroidManifest.xml and add this under Application tag:
 
     <service android:name="com.sovereign.trackingsdk.TrackingService"
         android:foregroundServiceType="location"/>
+    <service android:name="com.sovereign.trackingsdk.ARIntentService"/>
         
 and some permissions:
 
@@ -26,6 +27,9 @@ and some permissions:
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
 Sync project
 Build and Run your app.
@@ -34,10 +38,24 @@ Usage:
 
     //init Tracking Instance
     Tracking.Builder builder = new Tracking.Builder(activity);
-    builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push")
+    builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
         .setAuthen("bearer EPiAx6m-...") //access token
         .setTrackingDriver("username") //username
     mTrackingSDK = builder.build();
+    mTrackingSDK.setUseActivityRegconition(true);
     //
     mTrackingSDK.startTracking(); //call this to startTracking.
     //mTrackingSDK.stopTracking(); //call this to stopTracking.
+
+Authen:
+
+    ApiUrl = HOST + "/api/app-base/vdms-tracking/push" // https://testing.skedulomatic.com/api/app-base/vdms-tracking/push
+    LoginUrl = AUTHURL + "/oauth/token"                // https://accounts.skedulomatic.com/oauth/token
+    
+    use the LoginUrl with your username and password to get the `access token`, `refresh token`
+    `curl --location 'https://accounts.skedulomatic.com/oauth/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'grant_type=password' \
+    --data-urlencode 'username=<username>' \
+    --data-urlencode 'password=<password>'
+    `
