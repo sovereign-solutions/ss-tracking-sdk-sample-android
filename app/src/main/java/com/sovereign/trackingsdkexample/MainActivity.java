@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -53,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
 //                .setNotificationContentText("Tracking")
 //                .setNotificationContentTitle("Tracking")
 //                .setNotificationIconRes(R.mipmap.ic_launcher)
+        //set trackerId
+        String deviceId = Settings.Secure.getString(
+                getContentResolver(),
+                Settings.Secure.ANDROID_ID
+        );
+        mTrackingSDK.setTrackerId(deviceId + "@" + username);
         switchCompat.setChecked(mTrackingSDK.isTracking());
         mTrackingSDK.setUseActivityRegconition(true);
         mTrackingSDK.setCallback(new LocationSendCallBack() {
