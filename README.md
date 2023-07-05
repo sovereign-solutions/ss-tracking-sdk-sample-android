@@ -35,7 +35,7 @@ Sync project
 Build and Run your app.
 
 Usage:
-
+    
     //init Tracking Instance
     Tracking.Builder builder = new Tracking.Builder(activity);
     builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
@@ -43,6 +43,13 @@ Usage:
         .setTrackingDriver("username") //username
     mTrackingSDK = builder.build();
     mTrackingSDK.setUseActivityRegconition(true);
+
+    //set trackerId
+    String deviceId = Settings.Secure.getString(
+                getContentResolver(),
+                Settings.Secure.ANDROID_ID
+        );
+    mTrackingSDK.setTrackerId(deviceId + "@" + username);
     //
     mTrackingSDK.startTracking(); //call this to startTracking.
     //mTrackingSDK.stopTracking(); //call this to stopTracking.
