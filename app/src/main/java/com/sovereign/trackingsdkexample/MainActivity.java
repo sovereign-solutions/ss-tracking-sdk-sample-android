@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 Settings.Secure.ANDROID_ID
         );
         mTrackingSDK.setTrackerId(deviceId + "@" + username);
+        //set device status (1 active, 2 idle)
+        mTrackingSDK.setTrackingStatus(1);
+        //
         switchCompat.setChecked(mTrackingSDK.isTracking());
         mTrackingSDK.setUseActivityRegconition(true);
         mTrackingSDK.setCallback(new LocationSendCallBack() {

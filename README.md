@@ -50,6 +50,8 @@ Usage:
                 Settings.Secure.ANDROID_ID
         );
     mTrackingSDK.setTrackerId(deviceId + "@" + username);
+    //set device status (1: active, 2: idle)
+    mTrackingSDK.setTrackingStatus(1);
     //
     mTrackingSDK.startTracking(); //call this to startTracking.
     //mTrackingSDK.stopTracking(); //call this to stopTracking.
