@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Tracking.Builder builder = new Tracking.Builder(this);
         String username = "thanh13";
         String token = "bearer EPiAx6m-.....";
-        String refreshToken = "bearer Rnza47H-....";
+        String refreshToken = "Rnza47H-....";
 //        expires_in * 1000.0 + now()
         long expireIn = 0;
         mTrackingSDK = builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
@@ -65,29 +65,29 @@ public class MainActivity extends AppCompatActivity {
         //
         switchCompat.setChecked(mTrackingSDK.isTracking());
         mTrackingSDK.setUseActivityRegconition(true);
-        mTrackingSDK.setCallback(new LocationSendCallBack() {
-            @Override
-            public void onSendLocationResult(String resultString) {
-                Log.d("onSendLocationResult", resultString);
-            }
-
-            @Override
-            public void onFailed(String errorString) {
-
-            }
-            @Override
-            public void trackingStarted() {
-                isTracking = true;
-                textView.setText("Tracking started");
-            }
-
-            @Override
-            public void trackingStopped() {
-                isTracking = false;
-                textView.setText("Tracking stopped");
-                switchCompat.setChecked(false);
-            }
-        });
+//        mTrackingSDK.setCallback(new LocationSendCallBack() {
+//            @Override
+//            public void onSendLocationResult(String resultString) {
+//                Log.d("onSendLocationResult", resultString);
+//            }
+//
+//            @Override
+//            public void onFailed(String errorString) {
+//
+//            }
+//            @Override
+//            public void trackingStarted() {
+//                isTracking = true;
+//                textView.setText("Tracking started");
+//            }
+//
+//            @Override
+//            public void trackingStopped() {
+//                isTracking = false;
+//                textView.setText("Tracking stopped");
+//                switchCompat.setChecked(false);
+//            }
+//        });
         switchCompat.setOnCheckedChangeListener((CompoundButton.OnCheckedChangeListener) (buttonView, isChecked) -> {
             if (isChecked) {
                 if (!isTracking) {
