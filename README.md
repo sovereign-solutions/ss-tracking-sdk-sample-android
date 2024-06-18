@@ -9,7 +9,7 @@ Copy aar in libs folder to your project libs folder.
 In file /app/build.gradle under dependencies add:
 
     implementation files('libs/trackingsdk-release.aar')
-    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     
