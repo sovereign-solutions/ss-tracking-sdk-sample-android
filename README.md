@@ -30,7 +30,7 @@ and some permissions:
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 Sync project
 Build and Run your app.
 
@@ -38,8 +38,10 @@ Usage:
     
     //init Tracking Instance
     Tracking.Builder builder = new Tracking.Builder(activity);
-    builder.setApiUrl("https://testing.skedulomatic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
+    builder.setApiUrl("https://sales.grow-matic.com/api/app-base/vdms-tracking/push") // HOST + "/api/app-base/vdms-tracking/push"
         .setAuthen("bearer EPiAx6m-...") //access token
+        .setRefreshToken("dfWI_....") //refresh token
+        .setAuthenURL("https://accounts.skedulomatic.com/oauth/token")
         .setTrackingDriver("username") //username
     mTrackingSDK = builder.build();
     mTrackingSDK.setUseActivityRegconition(true);
