@@ -1,20 +1,14 @@
 package com.sovereign.trackingsdkexample;
 
-import static android.content.Context.POWER_SERVICE;
-import static android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -40,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 //        --data-urlencode 'username=<username>' \
 //        --data-urlencode 'password=<password>'
         String username = "sales_testing_1";
-
         String token = "bearer pJDEr8Q-wfmzZVFlt6WJxqQEoqjbDyMzv3x_NKkj1Oouc24eQKGsH4bVVveWSji4dpY6WTBxjg4VutgvmuNpHnVu1gyn0g8oMXQ7X-vu9SiAHF9eX4T0msUgkPvXppqxjWm2DQzicTRVC2qN3uYEDW6CsFbhqFVe4wakbU5NXgYN2qBIN2zYXkvyfObBDijSIUA9E30C992-ffA3HItmWV51FRKlX-R6bsIqsM1CePITQB0FOzBXPPH0NmjCp6G69h-Gi9OKvGmCYHcwcB3K_OstNnIZ9nueORJSbKtEt4McJ5ywsOiUzs_E3DdehN4-HukJTwIeOw7-3C4gP9FCB7p2UUQc3ZoKIs3V-2KvkcVC2yaq1F5PRafzrLQ5YItT95uK8PTEzVEMyGOeO3wmL3yvCekFegKWP2SFNdl6H6Yzf5mDt01BRW67Yvhrc-wBtMiPRa11JsRbi4kX_RGcq_0Aoxg";
         String refreshToken = "dfWI_9JQNwcpNJOjwez5XBc5UPJYLJ6DBdgAVfNL_LH1C7qru4v6I3DlX1ZboxZ08uNsL6BfecixN40XS65Bd0tGtWg5ed9yHvGli9k2sNHidQ1IreWwkF4IwT9oPutBoS2PFQrjcdjPe1oF97bNaS9cecS9kTtM27zKUaJ0n0-b03uYCshWDm-0pbCn_TAB7-8ecGu2DfHym474laq4OJ-GwHA12qFj2ExuY7sq0ghU9NzqDHqjsDA_oNauPDO5d7buhJxAOq0i3GKJ4s9xTU3YkA9qC4zJc3z470Rnrr71YT_SxejPd6PTdVNRTTMuSzLBiOxZa6vBL5G4znvVrkQMyL4E9q1FXxai9SStOH6uEodqDpzv1K4KwNk9zbjus-1TTpj5Hn-77nQ3XRqZeEQX7_tcBEtsM7QCpV_EMM8RQbbGhTzPaT-UtT3YGr3_w26de6iAtChKxuAzkPOpFplACBk";
 //        expires_in * 1000.0 + now()
